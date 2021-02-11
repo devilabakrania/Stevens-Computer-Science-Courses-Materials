@@ -1,0 +1,15 @@
+//Find for customer Knuth, the average sale in “NY”, the average sale in “CT” and the average sale in “NJ”, if New York's average is greater than the other two. 
+
+select_attribute:cust, 1_avg_quant, 1_sum_quant, 1_count_quant, 2_avg_quant, 3_avg_quant
+
+no_gv:3
+
+grouping_attributes:cust
+
+fvect:1_sum_quant, 1_avg_quant, 2_avg_quant, 2_sum_quant, 3_avg_quant, 3_sum_quant
+
+select:1_state="NY", 2_state="NJ", 3_state="CT"
+
+where:cust = Knuth
+
+having_condition:

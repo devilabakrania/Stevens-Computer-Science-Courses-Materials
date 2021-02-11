@@ -1,0 +1,14 @@
+//Calculate the customers who bought products in year 1997 whose sum of quantities are equal  
+
+
+select_attribute:cust, prod, month
+
+where:
+
+grouping_attributes:cust, prod, month
+
+no_gv:2
+
+fvect:1_avg_quant, 2_avg_quant
+
+select:1_nextrow.cust.equals(temp.cust), 2_nextrow.cust.equals(temp.cust), 1_nextrow.prod.equals(temp.prod), 2_nextrow.prod.equals(temp.prod), 1_nextrow.month+1 == temp.month, 2_nextrow.month-1 == temp.month

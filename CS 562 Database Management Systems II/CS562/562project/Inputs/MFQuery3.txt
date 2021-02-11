@@ -1,0 +1,15 @@
+//For each product and month show the total sales for cust = "Emily"
+
+select_attribute:prod, month, 1_sum_quant, 2_sum_quant
+
+no_gv:2
+
+grouping_attributes:prod, month
+
+fvect:1_sum_quant, 2_sum_quant
+
+select:1_cust="Emily"
+
+where:
+
+having_condition:

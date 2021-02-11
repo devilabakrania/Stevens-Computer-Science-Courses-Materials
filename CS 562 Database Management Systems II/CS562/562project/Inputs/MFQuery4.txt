@@ -1,0 +1,15 @@
+//Find for each customer and product the sum sale in “PA”, the sum sale in “CT” and the sum sale in “NJ” and also the total number of months they made sales in for each respective states.
+
+select_attribute:cust, prod, 1_sum_quant, 2_sum_quant, 3_sum_quant, 1_count_month, 2_count_month, 3_count_month
+
+no_gv:3
+
+grouping_attributes:cust, prod
+
+fvect:1_sum_quant, 2_sum_quant, 3_sum_quant, 1_count_month, 2_count_month, 3_count_month
+
+select:1_state="PA", 2_state="NJ", 3_state="CT"
+
+where:
+
+having_condition:

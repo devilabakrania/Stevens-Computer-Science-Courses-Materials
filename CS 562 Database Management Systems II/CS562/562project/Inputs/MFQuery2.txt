@@ -1,0 +1,15 @@
+//Find for each customer the sum of sales in “NY”, the sum of sales in “CT” and the sum of sales in “NJ”, if New York's average is less than 2 times average of "NJ" and less than "CT".
+
+select_attribute:prod, cust, 1_sum_quant, 2_sum_quant, 3_sum_quant, 3_count_quant, 3_avg_quant
+
+no_gv:3
+
+grouping_attributes:prod, cust
+
+fvect:1_sum_quant, 1_avg_quant, 2_avg_quant, 2_sum_quant, 3_avg_quant, 3_sum_quant, 3_count_quant
+
+select:1_state = "NY", 2_state="NJ", 3_state="CT"
+
+where:
+
+having_condition:avg_quant_1 < 2 * avg_quant_2, avg_quant_1 < avg_quant_3
