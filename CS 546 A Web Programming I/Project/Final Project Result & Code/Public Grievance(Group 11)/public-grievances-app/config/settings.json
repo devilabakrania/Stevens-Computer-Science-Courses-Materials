@@ -1,6 +1,0 @@
-{
-  "mongoConfig": {
-    "serverUrl": "mongodb://localhost:27017/",
-    "database": "Public_Grievances"
-  }
-}
