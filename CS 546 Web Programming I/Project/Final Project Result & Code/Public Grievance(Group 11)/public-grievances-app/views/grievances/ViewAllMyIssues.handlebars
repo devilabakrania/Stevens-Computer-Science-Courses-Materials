@@ -1,0 +1,68 @@
+<p>Welcome {{sessionInfo}}</p>
+<a class="auth" href="/userhome">Go Home</a>
+<form id="login-form" method="GET" action="/logout">
+    <button class="inline" type="submit">Logout</button>
+</form>
+<h2>Inside View All My Issues</h2>
+{{#each issueByUserId}}
+    <div data-toggle="collapse" data-target="#{{this._id}}" class="panel-heading">
+        <h3 class="panel-title">
+          {{this.name}}
+        </h4>
+        <form method="POST" action="/issues/like/{{this._id}}">
+            <p class="inline">{{this.likes}}</p>
+            <button class="icons" type="submit">Like</button>
+        </form>
+    </div>
+    <div id="{{this._id}}" class="collapse">
+        <p><label>Category</label> : {{this.category}}</p>
+        <p><label>Date</label>: {{this.date}}</p>
+        <p><label>Latitude</label>: {{this.latitude}}</p>
+        <p><label>Longitude</label>: {{this.longitude}}</p>
+        <p><label>City</label>: {{this.city}}</p>
+        <p><label>State</label> : {{this.state}}</p>
+        <p><label>Status</label> : {{this.status}}</p>
+        <!-- {{#if (open status)}}
+            <form method="POST" action="/issues/close/{{this._id}}">
+                <button type="submit">Close Issue</button>
+            </form>
+        {{else}}
+            <form method="POST" action="/issues/open/{{this._id}}">
+                <button type="submit">Open Issue</button>
+            </form>
+        {{/if}} -->
+        <p><label>Comments</label></p>
+        {{#each this.comments}}
+            <p><label>{{this.name}}</label> : {{this.content}}</p>
+        {{/each}}
+        <form method="POST" action="/issues/comment/{{this._id}}">
+            <textarea name="content"></textarea>
+            <button type="submit">Comment</button>
+        </form>
+        <a class="auth" href="/issueUpdate/{{this._id}}">Update Issue</a>
+        <form method="POST" action="/issueDelete/{{this._id}}">
+            <button type="submit">Delete</button>
+        </form>
+    </div>
+{{/each}}
+{{!-- {{#each issueByUserId}}
+    <p><label>Name</label> : {{this.name}}</p>
+    <p><label>Category</label> : {{this.category}}</p>
+    <p><label>Date</label>: {{this.date}}</p>
+    <p><label>Latitude</label>: {{this.latitude}}</p>
+    <p><label>Longitude</label>: {{this.longitude}}</p>
+    <p><label>City</label>: {{this.city}}</p>
+    <p><label>State</label> : {{this.state}}</p>
+    <p><label>Status</label> : {{this.status}}</p>
+    <p><label>Likes</label> : {{this.likes}}</p>
+    <p>Comments:</p>
+    {{#each this.comments}}
+        <p><label>{{this.name}}</label> : {{this.content}}</p>
+    {{/each}}
+    <form method="POST" action="/issues/comment/{{this._id}}">
+        <textarea name="content" rows="5"></textarea>
+        <button type="submit">Comment</button>
+    </form>
+
+    <br>
+{{/each}} --}}

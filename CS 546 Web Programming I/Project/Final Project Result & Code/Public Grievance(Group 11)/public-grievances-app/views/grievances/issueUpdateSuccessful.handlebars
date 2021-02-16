@@ -1,0 +1,16 @@
+<h2>Issue Update Successful</h2>
+<p>{{sessionInfo}}</p>
+{{#each issueList}}
+    <p><label>Name</label> : {{this.name}}</p>
+    <p><label>Category</label> : {{this.category}}</p>
+    <p><label>Date</label>: {{this.date}}</p>
+    <p><label>Latitude</label>: {{this.latitude}}</p>
+    <p><label>Longitude</label>: {{this.longitude}}</p>
+    <p><label>City</label>: {{this.city}}</p>
+    <p><label>State</label> : {{this.state}}</p>
+    <p>Comments:</p>
+    {{#each this.comments}}
+        <p><label>{{this.name}}</label> : {{this.content}}</p>
+    {{/each}}
+{{/each}}
+<a class="auth" href="/userhome">Go To Home</a>

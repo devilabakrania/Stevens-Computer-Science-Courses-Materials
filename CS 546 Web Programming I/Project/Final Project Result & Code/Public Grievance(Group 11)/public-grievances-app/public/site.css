@@ -1,0 +1,116 @@
+html, body {
+    background-color: #262A2F;
+    color: #C9CCD3;
+    font-family: "Roboto", Helvetica, sans-serif;
+    text-align: center;
+}
+
+.panel-heading, .collapse {
+    background-color: #4B5162;
+    color: #C9CCD3;
+    width: 60%;
+    margin: auto;
+}
+
+.collapse {
+    background-color: #262A2F;
+}
+
+.panel-heading {
+    border: 1px solid #C9CCD3;
+    border-radius: 20px;
+}
+
+h1 {
+    font-size: 50pt;
+    margin-bottom: 10px;
+}
+
+form * {
+    font-size: 20pt;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+form p {
+    font-size: 12pt;
+    width: 60%;
+    text-align: center;
+    margin: auto;
+}
+
+.dim {
+    color: white;
+}
+
+.location {
+    font-weight: bold;
+    font-size: 16pt;
+    display: inline;
+}
+
+#map {
+  height: 500px;
+  color: initial;
+  border-radius: 40px;
+  width: 80%;
+  margin: auto;
+}
+
+.error {
+    color: #C9CCD3;
+    font-weight: bold;
+    background-color: red;
+    padding: 5px 20px;
+    display: inline;
+    border-radius: 20px;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+.auth, button {
+    font-size: 20pt;
+    background-color: #5DADE2;
+    border-radius: 20px;
+    color: #262A2F;
+    border: 0;
+    padding: 5px 20px;
+    text-decoration: none;
+    margin: 5px;
+
+}
+
+.auth {
+    display: inline-block;
+}
+
+.inline {
+    display: inline;
+}
+
+input, select, textarea {
+    font-size: 20pt;
+    color: white;
+    border-radius: 20px;
+    border: 0;
+    background-color: #4B5162;
+    padding: 5px 12px;
+}
+
+textarea {
+    margin: auto;
+    width: 95%;
+    height: 5em;
+}
+
+#radius {
+    width: 100px;
+}
+
+.icons {
+    font-size: 10pt;
+    padding: 7px;
+}

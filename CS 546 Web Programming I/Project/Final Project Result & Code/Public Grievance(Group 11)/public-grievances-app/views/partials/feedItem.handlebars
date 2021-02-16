@@ -1,0 +1,35 @@
+<div data-toggle="collapse" data-target="#{{_id}}" class="panel-heading">
+    <h3 class="panel-title">
+      {{name}}
+    </h3>
+    <form method="POST" action="/issues/like/{{_id}}">
+        <p class="inline">{{likes}}</p>
+        <button class="icons" type="submit">Like</button>
+    </form>
+</div>
+<div id="{{_id}}" class="collapse">
+    <p><label>Category</label> : {{category}}</p>
+    <p><label>Date</label>: {{date}}</p>
+    <p><label>Latitude</label>: {{latitude}}</p>
+    <p><label>Longitude</label>: {{longitude}}</p>
+    <p><label>City</label>: {{city}}</p>
+    <p><label>State</label> : {{state}}</p>
+    <p><label>Status</label> : {{status}}</p>
+    <!-- {{#if (open status)}}
+        <form method="POST" action="/issues/close/{{_id}}">
+            <button type="submit">Close Issue</button>
+        </form>
+    {{else}}
+        <form method="POST" action="/issues/open/{{_id}}">
+            <button type="submit">Open Issue</button>
+        </form>
+    {{/if}} -->
+    <p><label>Comments</label></p>
+    {{#each comments}}
+        <p><label>{{name}}</label> : {{content}}</p>
+    {{/each}}
+    <form method="POST" action="/issues/comment/{{_id}}">
+        <textarea name="content" cols="40" rows="5"></textarea>
+        <button type="submit">Comment</button>
+    </form>
+</div>
