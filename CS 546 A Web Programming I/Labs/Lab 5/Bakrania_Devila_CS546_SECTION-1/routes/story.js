@@ -1,0 +1,18 @@
+const express = require("express")
+const router = express.Router()
+
+router.get("/", async(req,res) => {
+    try{
+        const story = 
+{
+    "storyTitle": "Who Am I as a Reader and  Writer",
+    "story": "It all started when I was young and one fine day out of curiosity I opened my Dad’s wardrobe and found a huge book How to win friends and influence people by Dale Carnegie. I tried reading it but at that age 7-8 years maybe, it was just turning the pages and probably reading the first page. Even when I didn't learn to write then, I used to copy my dad and tried to write all vague lines as I didn’t know the letters. This is how my writing began before knowing how to write. \nHow to Win by Shiv Khera was the first book my dad gifted me to read. The first quote I read in it was Winners don’t do different things, they do things differently and this quote was on the clapboard written by me in school days. This is how my reading, writing and sharing knowledge has begun. I was quite occupied with school learnings and maths practicing, and learning grammar and stuff from Wren & Martin when I just came to know my Dad has written two big books of English grammar, it's explanation in English and in regional language. That’s how I sharpen and learned English Grammar. I always want to publish my Dad’s book..\nIn my higher secondary school, we visited the great Swami Vivekanand’s ashram as a part of school activity. His inspirational books and quotes dragged me into reading books and noting quotes in my books. Then during my bachelors, I started reading novels crazily: one per week. I started taking notes of the words, I also started writing reviews about it and in no time I didn’t realize I started writing a diary about the best things and roller coaster things of my life. At times, when the heart is heavy, it was my writing which made it light. And let’s not forget that when you write, you live the best moments thrice during the day: one in real, one in your thoughts and other when you write it down.\nI am an over-thinker and talkative. I can end up writing text-message in paragraphs where it should be a line. The best thing about me as a Reader and Writer is I have made many of my friends and colleagues read great books. My Best Friend who was a technical person has now turned to a voracious reader and has become an investor. My cellphone is filled with gratitude texts from them. When it comes to fixing things, I enjoy Robin Sharma’s books and his words. It is so powerful to go deep inside and heal things. Most of the time, the story helps you in your real life a lot. My Best Read is 5 AM Club - Robin Sharma apart from his other book sets which I have it: Who will cry when you die, The monk who sold his Ferrari, The Greatness Guide, etc. I have started reading The Alchemist by Paulo Coelho, and the last book I read is Becoming by Michelle Obama and goodbye, things on minimalist living by fume salami. This was to reduce my love for gathering unwanted things in my house. The list is so long about the books that shaped me and I read. I am excited to read Prof. John’s books now. It’s a pleasure to learn from the writer himself, especially when he is your Professor. \nTalking about the future, I want to be a storyteller. I want to accelerate and support people in case they are stuck by my writing. I want to write about things people don’t tell each other. As I am a highly optimistic person, I want to spread this energy in this world that if you believe, you will find the way. If you don't, you may be blind to the way that can be right at your doorstep! \nP.S. Gift the Books and open the doors to wisdom!"
+}
+res.json(story)
+}
+    catch(error){
+        res.status(500).send()
+    }
+})
+
+module.exports = router

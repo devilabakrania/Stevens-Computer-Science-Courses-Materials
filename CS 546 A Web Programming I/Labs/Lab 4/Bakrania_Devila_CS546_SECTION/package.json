@@ -1,0 +1,16 @@
+{
+  "name": "bakrania_devila_cs546_section",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "DEVILA BAKRANIA 10457590",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^3.5.3"
+  },
+  "devDependencies": {},
+  "description": ""
+}
