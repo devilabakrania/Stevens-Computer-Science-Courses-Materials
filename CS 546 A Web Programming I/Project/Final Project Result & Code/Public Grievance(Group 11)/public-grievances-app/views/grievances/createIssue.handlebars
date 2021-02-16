@@ -1,0 +1,137 @@
+<h2>Create an Issue</h2>
+
+<a class="auth" href="/userhome">Go Home</a>
+
+<div id="map"></div>
+<script>
+
+  // The following example creates a marker in Stockholm, Sweden using a DROP
+  // animation. Clicking on the marker will toggle the animation between a BOUNCE
+  // animation and no animation.
+
+  var marker;
+
+  function initMap() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 16,
+      center: {lat: 59.325, lng: 18.070}
+    });
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+            document.getElementById("latitude").value = pos.lat;
+            document.getElementById("longitude").value = pos.lng;
+            var geocoder = new google.maps.Geocoder;
+
+            geocode(geocoder, pos);
+            map.setCenter(pos);
+            marker.setPosition(pos);
+            var date = new Date();
+            var formatted_date = date.getFullYear().toString() + '-' +
+                                (date.getMonth() + 1).toString().padStart(2, 0) +
+                                '-' + date.getDate().toString().padStart(2, 0);
+            var min_date = (date.getFullYear() - 1).toString() + '-' +
+                                (date.getMonth() + 1).toString().padStart(2, 0) +
+                                '-' + date.getDate().toString().padStart(2, 0);
+            // console.log(min_date);
+            // console.log(formatted_date);
+
+            document.getElementById("date").value = formatted_date;
+            document.getElementById("date").min = min_date;
+            document.getElementById("date").max = formatted_date;
+        });
+    }
+
+    marker = new google.maps.Marker({
+      map: map,
+      draggable: true,
+      animation: google.maps.Animation.DROP,
+      position: {lat: 59.327, lng: 18.067}
+    });
+    marker.addListener('drag', toggleBounce);
+    marker.addListener('dragend', toggleDragend);
+
+  }
+
+  function toggleDragend() {
+      var pos_dragend = {
+          lat: marker.getPosition().lat(),
+          lng: marker.getPosition().lng()
+      }
+      var geocoder2 = new google.maps.Geocoder;
+      geocode(geocoder2, pos_dragend);
+  }
+
+  function geocode(geocoder, pos) {
+      geocoder.geocode({'location': pos}, function(results, status) {
+          if (status == 'OK') {
+              if (results[0]) {
+                  const addr = results[0].address_components;
+                  const city = addr.find(obj => JSON.stringify(obj.types) == JSON.stringify(["locality", "political"]));
+                  const state = addr.find(obj => JSON.stringify(obj.types) == JSON.stringify(["administrative_area_level_1", "political"]));
+                  document.getElementById("city").value = city.short_name;
+                  document.getElementById("state").value = state.long_name;
+              }
+          }
+      });
+  }
+
+  function toggleBounce() {
+    //if (marker.getAnimation() !== null) {
+      //marker.setAnimation(null);
+    //} else {
+      //marker.setAnimation(google.maps.Animation.BOUNCE);
+      var lat = marker.getPosition().lat();
+      var lng = marker.getPosition().lng();
+      document.getElementById("latitude").value = lat;
+      document.getElementById("longitude").value = lng;
+    }
+
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDs-DaFuYDPJ1ThmZywl6Ve2AMTB03iSGI&callback=initMap">
+</script>
+
+<form method="POST" action="createIssue">
+    <br>
+    <br>
+    <label for="name">Issue Name </label>
+    <input type="text" id="name" name="name" required>
+    <br>
+    <br>
+    <label for="category">Issue Category </label>
+    <select id="category" name="category">
+        <option value="Garbage Dump">Garbage Dump</option>
+        <option value="Wrong Parking">Wrong Parking</option>
+        <option value="Bad Roads">Bad Roads</option>
+    </select>
+    <br>
+    <br>
+    <label for="date">Issue Date </label>
+    <input type="date" id="date" name="date" min="1990-01-01">
+    <br>
+    <br>
+    <label for="latitude">Latitude </label>
+    <input type="text" id="latitude" name="latitude" readonly>
+    <br>
+    <br>
+    <label for="longitude">Longitude </label>
+    <input type="text" id="longitude" name="longitude" readonly>
+    <br>
+    <br>
+    <label for="city">City </label>
+    <input type="text" id="city" name="city" readonly>
+    <br>
+    <br>
+    <label for="state">State </label>
+    <input id="state" name="state" readonly>
+    <br>
+    <br>
+    <button type="submit">Submit</button>
+    <br>
+    <br>
+
+</form>
